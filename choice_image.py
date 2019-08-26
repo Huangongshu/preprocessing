@@ -12,7 +12,7 @@ def choice_i(num_path_list_df,df_index,image_base_path,image_copy_path,split_sy_
         df_index: dataframe中序号的列表
         image_base_path: 存放所有眼睛图片的文件夹地址
         image_copy_path: 复制的图片存放的地址
-        copy_num: 复制的挂号号码量
+        split_sy_position: 挂号号码再图片名字中的位置
         eye_type: 'L' or 'R'
         
     '''     
