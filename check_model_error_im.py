@@ -22,7 +22,7 @@ def copy_im(move_path,n_class,model_path,p):
     if pred!=n_class:
         copy(p,move_path)
 
-def check_model_error_im(path,move_path,n_class,model_path):
+def check_model_error_im(path,move_path,n_class,model_path):  #Used to select pictures of model prediction errors
     p=[x for x in glob(path+'/*.jpg')]
     func=partial(copy_im,move_path,n_class,model_path)
     pool=Pool(2)
