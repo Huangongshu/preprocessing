@@ -19,5 +19,4 @@ if __name__=='__main__':
     move_im_path2=r'D:\huan\第二批数据过滤\abnormal2'
     
     compare_file(move_im_path1,goal_path1,save_path1)
-    compare_file(move_im_path2,goal_path2,save_path1
-                 
+    compare_file(move_im_path2,goal_path2,save_path1)
