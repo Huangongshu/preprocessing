@@ -9,14 +9,13 @@ from shutil import copy
 from functools import partial
 from multiprocessing import Pool
 
-def copy_im(move_path,n_class,model_path,p):
+def copy_im(move_path,n_class,model,p):
     im=cv2.imread(p)
     im=cv2.resize(im,(224,224))
     b,g,r=cv2.split(im)
     im=cv2.merge((r,g,b))
     im=(im/255.0-0.5)*2
     im=np.expand_dims(im,axis=0) 
-    model=load_model(model_path)
     pred=model.predict(im)
     pred=np.where(pred>=0.5,1,0)
     if pred!=n_class:
@@ -24,7 +23,8 @@ def copy_im(move_path,n_class,model_path,p):
 
 def check_model_error_im(path,move_path,n_class,model_path):  #Used to select pictures of model prediction errors
     p=[x for x in glob(path+'/*.jpg')]
-    func=partial(copy_im,move_path,n_class,model_path)
+    model=load_model(model_path)
+    func=partial(copy_im,move_path,n_class,model)
     pool=Pool(2)
     pool.map(func,p)
     pool.close()
