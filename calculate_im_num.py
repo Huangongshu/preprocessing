@@ -19,7 +19,7 @@ def judge_illness(string,patt):
     r_eye_str_order = string.find(r_eye) 
     pat_str_order = string.find(patt)
     
-    if t_eye_str_order == -1:
+    if t_eye_str_order == -1:  #防止出现不存在情况
         t_eye_str_order = 10000
     
     if l_eye_str_order == -1:
